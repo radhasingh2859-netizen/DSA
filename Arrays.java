@@ -5,22 +5,28 @@ public class Arrays {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter the size of the array");
-        int size = sc.nextInt();
 
-        int sum = 0;
-        double average = 0;
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
 
-        int arr[] = new int[size];
-        for (int i = 0; i < arr.length; i++) {
+        int[] arr = new int[n];
+
+        int even = 0;
+        int odd = 0;
+
+        System.out.println("Enter elements:");
+
+        for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
-            sum = sum + arr[i];
-            average = (double) sum / size;
 
+            if (arr[i] % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
         }
-        System.out.println("sum:" + sum);
-        System.out.println("average" + average);
 
+        System.out.println("Even elements = " + even);
+        System.out.println("Odd elements = " + odd);
     }
-
 }
