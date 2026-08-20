@@ -8,25 +8,25 @@ public class Arrays {
 
         System.out.print("Enter number of elements: ");
         int n = sc.nextInt();
+        int arr[] = new int[n];
 
-        int[] arr = new int[n];
-
-        int even = 0;
-        int odd = 0;
-
-        System.out.println("Enter elements:");
-
-        for (int i = 0; i < n; i++) {
+        System.out.println("Enter the elements");
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
 
-            if (arr[i] % 2 == 0) {
-                even++;
-            } else {
-                odd++;
-            }
         }
+        int largest = arr[0];
+        int secondlargest = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                secondlargest = largest;
+                largest = arr[i];
 
-        System.out.println("Even elements = " + even);
-        System.out.println("Odd elements = " + odd);
+            } else if (arr[i] > secondlargest && arr[i] != largest) {
+                secondlargest = arr[i];
+            }
+
+        }
+        System.out.println("second largest element" + secondlargest);
     }
 }
