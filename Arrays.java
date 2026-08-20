@@ -7,24 +7,20 @@ public class Arrays {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter the size of the array");
         int size = sc.nextInt();
+
+        int sum = 0;
+        double average = 0;
+
         int arr[] = new int[size];
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
-        }
-        int start = 0;
-        int end = arr.length - 1;
-        while (start < end) {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++;
-            end--;
+            sum = sum + arr[i];
+            average = (double) sum / size;
 
         }
-        System.out.println("Reversed array");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        System.out.println("sum:" + sum);
+        System.out.println("average" + average);
 
     }
+
 }
