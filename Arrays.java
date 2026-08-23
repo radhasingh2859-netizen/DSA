@@ -5,38 +5,26 @@ public class Arrays {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of first array");
+        System.out.println("Enter the size of elenent");
         int n = sc.nextInt();
-        System.out.println("enter the size of second array");
-
-        int n1 = sc.nextInt();
-        int arr1[] = new int[n];
-        System.out.println("Enter the element in first array");
-
+        int arr[] = new int[n];
+        //input elements
         for (int i = 0; i < n; i++) {
-            arr1[i] = sc.nextInt();
-
+            arr[i] = sc.nextInt();
         }
-        System.out.println("Enter the element in second array");
-        int arr2[] = new int[n1];
         for (int i = 0; i < n; i++) {
-            arr2[i] = sc.nextInt();
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                    arr[j] = -1;
+                }
+            }
+            if (arr[i] != -1) {
+                System.out.println(arr[i] + " occurs " + count + " times");
 
+            }
         }
-        int arr3[] = new int[n + n1];
-        for (int i = 0; i < n; i++) {
-
-            arr3[i] = arr1[i];
-        }
-        for (int i = 0; i < n1; i++) {
-            arr3[i + n1] = arr2[i];
-
-        }
-        System.out.println("merge array");
-        for (int i = 0; i < arr3.length; i++) {
-            System.out.print(arr3[i] + " ");
-
-        }
-
     }
+
 }
