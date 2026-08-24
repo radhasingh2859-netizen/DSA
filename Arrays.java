@@ -12,19 +12,14 @@ public class Arrays {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        boolean sorted = true;
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                sorted = false;
+        System.out.println("enter the target value");
+        int d = sc.nextInt();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] + arr[j] == d) {
+                    System.out.println(arr[i] + "+" + arr[j] + "=" + d);
+                }
             }
-
         }
-        if (sorted) {
-            System.out.println("sorted");
-        } else {
-            System.out.println("not sorted");
-        }
-
     }
-
 }
