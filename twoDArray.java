@@ -15,7 +15,7 @@ public class twoDArray {
 
         int matrix1[][] = new int[a][b];
         int matrix2[][] = new int[a][b];
-        int sum[][] = new int[a][b];
+        int mul[][] = new int[a][b];
 
         // Matrix 1
         System.out.println("Enter elements of matrix 1");
@@ -32,22 +32,10 @@ public class twoDArray {
                 matrix2[i][j] = sc.nextInt();
             }
         }
-
-        // Sum
         for (int i = 0; i < a; i++) {
             for (int j = 0; j < b; j++) {
-                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+                mul[i][j] = (matrix1[i][j] * matrix2[j][i]) + (matrix1[i + 1] * matrix2[j + 1]);
             }
-        }
 
-        // Print sum
-        System.out.println("Sum of matrices:");
-
-        for (int i = 0; i < a; i++) {
-            for (int j = 0; j < b; j++) {
-                System.out.print(sum[i][j] + " ");
-            }
-            System.out.println();
         }
     }
-}
