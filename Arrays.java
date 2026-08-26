@@ -9,20 +9,19 @@ public class Arrays {
         int n = sc.nextInt();
         int a[] = new int[n];
         int b[] = new int[n];
-        System.out.println("enter the element of vector 1 ");
+        System.out.println("enter the element");
         for (int i = 0; i < n; i++) {
             a[i] = sc.nextInt();
         }
-        System.out.println("enter the element of vector 2");
-        for (int i = 0; i < n; i++) {
-            b[i] = sc.nextInt();
-        }
-        double sum = 0;
-        for (int i = 0; i < n; i++) {
-            sum = sum + Math.pow(a[i] - b[i], 2);
+        for (int i = 0; i < n / 2; i++) {
+            int temp = a[i];
+            a[i] = a[n - i - 1];
+            a[n - i - 1] = temp;
 
         }
-        double dis = Math.sqrt(sum);
-        System.out.println("Euclidean distance" + " " + dis);
+        System.out.println("reversed array is");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + " ");
+        }
     }
 }
