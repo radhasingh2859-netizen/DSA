@@ -12,12 +12,19 @@ public class string {
             arr[i] = sc.next();
 
         }
-        int b = 0;
+        String result = " ";
         for (int i = 0; i < a; i++) {
-            b = b + arr[i].length();
+            for (int j = 0; j < arr[i].length(); j++) {
 
+                if (arr[i].charAt(j) == 'e') {
+                    result += 'i';
+
+                } else {
+                    result += arr[i].charAt(j);
+                }
+            }
         }
-        System.out.println(b);
 
+        System.out.println(result);
     }
 }
