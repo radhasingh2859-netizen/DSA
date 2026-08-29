@@ -3,32 +3,36 @@ import java.util.*;
 
 public class functions {
 
-    public static boolean printeven(int n) {
-        if (n % 2 == 0) {
-            return true;
-        } else {
-            return false;
+    // Function to calculate factorial
+    static int factorial(int n) {
+        int fact = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fact = fact * i;
         }
+
+        return fact;
     }
 
-    public static void main(String args[]) {
+    // Function to calculate nCr
+    static int nCr(int n, int r) {
+
+        int result = factorial(n)
+                / (factorial(r) * factorial(n - r));
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter the size of the array");
+
+        System.out.print("Enter n: ");
         int n = sc.nextInt();
-        int arr[] = new int[n];
-        System.out.println("enter the elements");
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
 
-        }
-        System.out.println("even numbers are");
-        for (int i = 0; i < n; i++) {
-            if (printeven(arr[i])) {
-                System.out.print(arr[i] + " ");
-            }
+        System.out.print("Enter r: ");
+        int r = sc.nextInt();
 
-        }
-
+        System.out.println("nCr = " + nCr(n, r));
     }
-
 }
