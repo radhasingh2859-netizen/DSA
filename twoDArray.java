@@ -1,57 +1,82 @@
 
-import java.util.*;
+import java.util.Scanner;
 
 public class twoDArray {
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter the rows of the spiral matrix");
-        int n = sc.nextInt();
-        System.out.println("enter the columns of the spiral matrix");
-        int m = sc.nextInt();
-        int a[][] = new int[n][m];
-        System.out.println("enter the elements of the matrix");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                a[i][j] = sc.nextInt();
 
-            }
+        // Input size of first matrix
+        System.out.print("Enter rows of first matrix: ");
+        int r1 = sc.nextInt();
 
+        System.out.print("Enter columns of first matrix: ");
+        int c1 = sc.nextInt();
+
+        // Input size of second matrix
+        System.out.print("Enter rows of second matrix: ");
+        int r2 = sc.nextInt();
+
+        System.out.print("Enter columns of second matrix: ");
+        int c2 = sc.nextInt();
+
+        // Check whether multiplication is possible
+        if (c1 != r2) {
+            System.out.println("Matrix multiplication is not possible.");
+            return;
         }
-        int top = 0;
-        int bottom = n - 1;
-        int left = 0;
-        int right = m - 1;
-        System.out.println("spiral order");
-        while (top <= bottom && left <= right) {
 
-            // Top row
-            for (int i = left; i <= right; i++) {
-                System.out.print(a[top][i] + " ");
-            }
-            top++;
+        // Create matrices
+        int[][] matrix1 = new int[r1][c1];
+        int[][] matrix2 = new int[r2][c2];
 
-            // Right column
-            for (int i = top; i <= bottom; i++) {
-                System.out.print(a[i][right] + " ");
-            }
-            right--;
+        // Result matrix
+        int[][] result = new int[r1][c2];
 
-            // Bottom row
-            if (top <= bottom) {
-                for (int i = right; i >= left; i--) {
-                    System.out.print(a[bottom][i] + " ");
-                }
-                bottom--;
-            }
+        // Input first matrix
+        System.out.println("Enter elements of first matrix:");
 
-            // Left column
-            if (left <= right) {
-                for (int i = bottom; i >= top; i--) {
-                    System.out.print(a[i][left] + " ");
-                }
-                left++;
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                matrix1[i][j] = sc.nextInt();
             }
         }
+
+        // Input second matrix
+        System.out.println("Enter elements of second matrix:");
+
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                matrix2[i][j] = sc.nextInt();
+            }
+        }
+
+        // Matrix multiplication
+        for (int i = 0; i < r1; i++) {
+
+            for (int j = 0; j < c2; j++) {
+
+                for (int k = 0; k < r2; k++) {
+
+                    result[i][j]
+                            = result[i][j] + matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+
+        // Print result
+        System.out.println("Result matrix:");
+
+        for (int i = 0; i < r1; i++) {
+
+            for (int j = 0; j < c2; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
     }
 }
