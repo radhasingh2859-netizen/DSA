@@ -1,25 +1,30 @@
 
+import java.util.*;
+
 public class functions {
 
-    public static boolean isPrime(int n) {
-        if (n < 2) {
-            return false;
+    public static int reverseNumber(int n) {
+        int reverse = 0;
+
+        while (n > 0) {
+            int digit = n % 10;
+            reverse = reverse * 10 + digit;
+            n = n / 10;
         }
-        for (int i = 2; i < n / 2; i++) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-        return true;
+
+        return reverse;
     }
 
     public static void main(String[] args) {
-        System.out.println("prime numbers are:");
-        for (int i = 1; i <= 100; i++) {
-            if (isPrime(i)) {
-                System.out.println(i);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-            }
+        int reverse = reverseNumber(n);
+
+        if (n == reverse) {
+            System.out.println(n + " is a palindrome");
+        } else {
+            System.out.println(n + " is not a palindrome");
         }
     }
 }
