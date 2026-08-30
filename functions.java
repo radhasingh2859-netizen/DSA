@@ -1,38 +1,25 @@
 
-import java.util.*;
-
 public class functions {
 
-    // Function to calculate factorial
-    static int factorial(int n) {
-        int fact = 1;
-
-        for (int i = 1; i <= n; i++) {
-            fact = fact * i;
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
         }
-
-        return fact;
-    }
-
-    // Function to calculate nCr
-    static int nCr(int n, int r) {
-
-        int result = factorial(n)
-                / (factorial(r) * factorial(n - r));
-
-        return result;
+        for (int i = 2; i < n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
+        System.out.println("prime numbers are:");
+        for (int i = 1; i <= 100; i++) {
+            if (isPrime(i)) {
+                System.out.println(i);
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter n: ");
-        int n = sc.nextInt();
-
-        System.out.print("Enter r: ");
-        int r = sc.nextInt();
-
-        System.out.println("nCr = " + nCr(n, r));
+            }
+        }
     }
 }
