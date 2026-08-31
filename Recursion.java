@@ -1,20 +1,18 @@
 
 public class Recursion {
 
-    public static void TowerOfHanoi(int n, String source, String helper, String des) {
-        if (n == 1) {
-            System.out.println("transfer disk" + n + "from" + source + "to" + des);
+    public static void printrev(String str, int idx) {
+        if (idx == 0) {
+            System.out.println(str.charAt(idx));
             return;
 
         }
-        TowerOfHanoi(n - 1, source, des, helper);
-        System.out.println("transfer disk" + n + "from" + source + "to " + des);
-        TowerOfHanoi(n - 1, helper, source, des);
+        System.out.println(str.charAt(idx));
+        printrev(str, idx - 1);
     }
 
     public static void main(String[] args) {
-        int n = 3;
-        TowerOfHanoi(n, "s", "h", "d");
+        String str = "abcd";
+        printrev(str, str.length() - 1);
     }
-
 }
