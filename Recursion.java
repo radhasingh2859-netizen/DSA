@@ -1,31 +1,20 @@
 
 public class Recursion {
 
-    public static int firstocc = -1;
-    public static int lastocc = -1;
-
-    public static void FirstandLastOcc(int idx, String str, char element) {
-
-        if (idx == str.length()) {
-            System.out.println(firstocc);
-            System.out.println(lastocc);
-            return;
+    public static boolean sorted(int arr[], int idx) {
+        if (idx == arr.length - 1) {
+            return true;
         }
-        char currchar = str.charAt(idx);
-        if (currchar == element) {
-            if (firstocc == -1) {
-                firstocc = idx;
-
-            } else {
-                lastocc = idx;
-            }
+        if (arr[idx] < arr[idx + 1]) {
+            return sorted(arr, idx + 1);
+        } else {
+            return false;
         }
-        FirstandLastOcc(idx + 1, str, element);
-
     }
 
     public static void main(String[] args) {
-        String str = "abaacaaadaafgdr";
-        FirstandLastOcc(0, str, 'a');
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
+        System.out.println(sorted(arr, 0));
+
     }
 }
