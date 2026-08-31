@@ -1,19 +1,20 @@
 
 public class Recursion {
 
-    public static void printnaturalnum(int i, int n, int sum) {
-        if (i == n) {
-            sum += i;
-            System.out.println(sum);
-            return;
+    public static int printfactorial(int n) {
+        if (n == 1 || n == 0) {
+            return 1;
         }
-        sum += i;
-        printnaturalnum(i + 1, n, sum);
-
+        int a = printfactorial(n - 1);
+        int b = n * (n - 1);
+        return b;
     }
 
     public static void main(String[] args) {
-        printnaturalnum(1, 10, 0);
+        int n = 5;
+        printfactorial(n);
+
+        System.out.println(printfactorial(n));
     }
 
 }
