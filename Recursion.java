@@ -1,24 +1,20 @@
 
 public class Recursion {
 
-    public static int printpower(int x, int n) {
-        if (n == 0) {
-            return 1;
-        }
-        if (x == 0) {
-            return 0;
+    public static void TowerOfHanoi(int n, String source, String helper, String des) {
+        if (n == 1) {
+            System.out.println("transfer disk" + n + "from" + source + "to" + des);
+            return;
 
         }
-        if (n % 2 == 0) {
-            return printpower(x, n / 2) * printpower(x, n / 2);
-        } else {
-            return x * printpower(x, n / 2) * printpower(x, n / 2);
-
-        }
+        TowerOfHanoi(n - 1, source, des, helper);
+        System.out.println("transfer disk" + n + "from" + source + "to " + des);
+        TowerOfHanoi(n - 1, helper, source, des);
     }
 
     public static void main(String[] args) {
-        int x = 2, n = 3;
-        System.out.println(printpower(x, n));
+        int n = 3;
+        TowerOfHanoi(n, "s", "h", "d");
     }
+
 }
