@@ -1,20 +1,30 @@
 
 public class Recursion {
 
-    public static boolean sorted(int arr[], int idx) {
-        if (idx == arr.length - 1) {
-            return true;
+    public static void printxinend(String str, int idx, int count, String newsString) {
+        if (idx == str.length()) {
+            for (int i = 0; i < count; i++) {
+                newsString += 'x';
+
+            }
+            System.out.println(newsString);
+
+            return;
         }
-        if (arr[idx] < arr[idx + 1]) {
-            return sorted(arr, idx + 1);
+        char currChar = str.charAt(idx);
+        if (currChar == 'x') {
+            count++;
+            printxinend(str, idx + 1, count, newsString);
         } else {
-            return false;
+            newsString += currChar;
+            printxinend(str, idx + 1, count, newsString);
         }
+
     }
 
     public static void main(String[] args) {
-        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
-        System.out.println(sorted(arr, 0));
-
+        String str = "abxxxdxxxghi";
+        printxinend(str, 0, 0, "");
     }
+
 }
