@@ -1,30 +1,27 @@
 
 public class Recursion {
 
-    public static void printxinend(String str, int idx, int count, String newsString) {
+    public static boolean mapping[] = new boolean[26];
+
+    public static void removedup(int idx, String str, String newString) {
         if (idx == str.length()) {
-            for (int i = 0; i < count; i++) {
-                newsString += 'x';
-
-            }
-            System.out.println(newsString);
-
+            System.out.println(newString);
             return;
         }
-        char currChar = str.charAt(idx);
-        if (currChar == 'x') {
-            count++;
-            printxinend(str, idx + 1, count, newsString);
+        char currchar = str.charAt(idx);
+        if (mapping[currchar - 'a']) {
+            removedup(idx + 1, str, newString);
         } else {
-            newsString += currChar;
-            printxinend(str, idx + 1, count, newsString);
-        }
+            newString += currchar;
 
+            mapping[currchar - 'a'] = true;
+            removedup(idx + 1, str, newString);
+        }
     }
 
     public static void main(String[] args) {
-        String str = "abxxxdxxxghi";
-        printxinend(str, 0, 0, "");
+        String str = "aafhhhdxssky";
+        removedup(0, str, "");
     }
 
 }
