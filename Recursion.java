@@ -1,27 +1,19 @@
 
 public class Recursion {
 
-    public static boolean mapping[] = new boolean[26];
-
-    public static void removedup(int idx, String str, String newString) {
+    public static void printAllSub(int idx, String str, String combination) {
         if (idx == str.length()) {
-            System.out.println(newString);
+            System.out.println(combination);
             return;
         }
         char currchar = str.charAt(idx);
-        if (mapping[currchar - 'a']) {
-            removedup(idx + 1, str, newString);
-        } else {
-            newString += currchar;
+        printAllSub(idx + 1, str, combination + currchar);//wants to come
+        printAllSub(idx + 1, str, combination);//donot want to come
 
-            mapping[currchar - 'a'] = true;
-            removedup(idx + 1, str, newString);
-        }
     }
 
     public static void main(String[] args) {
-        String str = "aafhhhdxssky";
-        removedup(0, str, "");
+        String str = "abcd";
+        printAllSub(0, str, "");
     }
-
 }
