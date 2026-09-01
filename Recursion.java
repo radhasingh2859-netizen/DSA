@@ -1,19 +1,29 @@
 
+import java.util.HashSet;
+
 public class Recursion {
 
-    public static void printAllSub(int idx, String str, String combination) {
+    public static void subsequences(String str, int idx, String newString, HashSet<String> set) {
         if (idx == str.length()) {
-            System.out.println(combination);
-            return;
+            if (set.contains(newString)) {
+                return;
+            } else {
+                System.out.println(newString);
+                set.add(newString);
+                return;
+
+            }
         }
         char currchar = str.charAt(idx);
-        printAllSub(idx + 1, str, combination + currchar);//wants to come
-        printAllSub(idx + 1, str, combination);//donot want to come
+        subsequences(str, idx + 1, newString + currchar, set);
+        subsequences(str, idx + 1, newString, set);
 
     }
 
     public static void main(String[] args) {
-        String str = "abcd";
-        printAllSub(0, str, "");
+        String str = "aaa";
+        HashSet<String> set = new HashSet<>();
+        subsequences(str, 0, "", set);
     }
+
 }
