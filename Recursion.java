@@ -1,29 +1,24 @@
 
-import java.util.HashSet;
-
 public class Recursion {
 
-    public static void subsequences(String str, int idx, String newString, HashSet<String> set) {
-        if (idx == str.length()) {
-            if (set.contains(newString)) {
-                return;
-            } else {
-                System.out.println(newString);
-                set.add(newString);
-                return;
+    public static String[] keypad = {".", "adc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz"};
 
-            }
+    public static void printcom(String str, int idx, String com) {
+        if (idx == str.length()) {
+            System.out.println(com);
+            return;
         }
         char currchar = str.charAt(idx);
-        subsequences(str, idx + 1, newString + currchar, set);
-        subsequences(str, idx + 1, newString, set);
+        String mapping = keypad[currchar - '0'];
+        for (int i = 0; i < mapping.length(); i++) {
+            printcom(str, idx + 1, com + mapping.charAt(i));
 
+        }
     }
 
     public static void main(String[] args) {
-        String str = "aaa";
-        HashSet<String> set = new HashSet<>();
-        subsequences(str, 0, "", set);
+        String str = "23";
+        printcom(str, 0, "");
     }
 
 }
