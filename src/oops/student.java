@@ -6,8 +6,13 @@ public class student {
     public String name;
     public int nos;
 
-    public student() {
-        System.out.println("student default constructor");
+    public student(int id, int age, String name, int nos) {
+        System.out.println("student parameterised constructor");
+        this.id = id;
+        this.age = age;
+        this.nos = nos;
+        this.name = name;
+
     }
 
     public void study() {
