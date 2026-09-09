@@ -15,6 +15,15 @@ public class student {
 
     }
 
+    public student(student srcobj) {
+        System.out.println("student copy constructor called");
+        this.id = srcobj.id;
+        this.age = srcobj.age;
+        this.name = srcobj.name;
+        this.nos = srcobj.nos;
+
+    }
+
     public void study() {
         System.out.println(name + " studying");
     }
