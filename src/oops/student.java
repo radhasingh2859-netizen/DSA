@@ -21,6 +21,9 @@ public class student {
     }
 
     public void setAge(int c) {
+        if (age < 100) {
+            return;
+        }
         this.age = c;
     }
 

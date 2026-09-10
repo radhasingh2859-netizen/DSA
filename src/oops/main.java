@@ -21,7 +21,7 @@ public class main {
         // System.out.println(a.mobilenumber);
         // a.chatting();
         System.out.println(a.getName());
-        a.setAge(18);
+        a.setAge(102);
         System.out.println(a.getAge());
     }
 }
