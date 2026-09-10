@@ -17,5 +17,6 @@ public class main {
         System.out.println(b.name);
         System.out.println(b.id);
         System.out.println(b.nos);
+        b.bunk();
     }
 }
