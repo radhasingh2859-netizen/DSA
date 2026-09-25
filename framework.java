@@ -5,29 +5,20 @@ public class framework {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> list = new ArrayList<>();
+        LinkedList<Integer> list = new LinkedList<>();
 
-        // Add
         list.add(10);
         list.add(20);
         list.add(30);
 
-        // Add at index
-        list.add(1, 15);
+        list.addFirst(5);
+        list.addLast(40);
 
-        // Access
-        System.out.println(list.get(2));
+        System.out.println(list);
 
-        // Update
-        list.set(0, 100);
+        list.removeFirst();
+        list.removeLast();
 
-        // Remove
-        list.remove(1);
-
-        // Size
-        System.out.println(list.size());
-
-        // Print
         System.out.println(list);
     }
 }
