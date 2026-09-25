@@ -5,20 +5,19 @@ public class framework {
 
     public static void main(String[] args) {
 
-        LinkedList<Integer> list = new LinkedList<>();
+        HashSet<Integer> set = new HashSet<>();
 
-        list.add(10);
-        list.add(20);
-        list.add(30);
+        set.add(10);
+        set.add(20);
+        set.add(10);
+        set.add(30);
 
-        list.addFirst(5);
-        list.addLast(40);
+        System.out.println(set);
 
-        System.out.println(list);
+        System.out.println(set.contains(20));
 
-        list.removeFirst();
-        list.removeLast();
+        set.remove(20);
 
-        System.out.println(list);
+        System.out.println(set);
     }
 }
