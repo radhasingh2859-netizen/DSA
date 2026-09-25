@@ -5,19 +5,18 @@ public class framework {
 
     public static void main(String[] args) {
 
-        HashSet<Integer> set = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
 
-        set.add(10);
-        set.add(20);
-        set.add(10);
-        set.add(30);
+        q.add(10);
+        q.add(20);
+        q.add(30);
 
-        System.out.println(set);
+        System.out.println(q);
 
-        System.out.println(set.contains(20));
+        System.out.println(q.peek());
 
-        set.remove(20);
+        q.remove();
 
-        System.out.println(set);
+        System.out.println(q);
     }
 }
