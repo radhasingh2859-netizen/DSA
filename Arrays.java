@@ -1,7 +1,8 @@
 
 import java.util.HashMap;
 
-public class Main {
+public class Arrays {
+
     public static void main(String[] args) {
 
         int[] arr = {2, 7, 11, 15};
@@ -20,7 +21,7 @@ public class Main {
                 System.out.println("Index 2 = " + i);
 
                 System.out.println(
-                    "Numbers = " + required + " + " + arr[i]
+                        "Numbers = " + required + " + " + arr[i]
                 );
 
                 return;
