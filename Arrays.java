@@ -1,35 +1,34 @@
 
-import java.util.HashMap;
-
 public class Arrays {
 
     public static void main(String[] args) {
 
-        int[] arr = {2, 7, 11, 15};
+        int[] arr = {10, 20, 30, 40, 50, 60, 70};
 
-        int target = 9;
+        int target = 50;
 
-        HashMap<Integer, Integer> map = new HashMap<>();
+        int left = 0;
+        int right = arr.length - 1;
 
-        for (int i = 0; i < arr.length; i++) {
+        while (left <= right) {
 
-            int required = target - arr[i];
+            int mid = left + (right - left) / 2;
 
-            if (map.containsKey(required)) {
+            if (arr[mid] == target) {
 
-                System.out.println("Index 1 = " + map.get(required));
-                System.out.println("Index 2 = " + i);
-
-                System.out.println(
-                        "Numbers = " + required + " + " + arr[i]
-                );
-
+                System.out.println("Found at index " + mid);
                 return;
-            }
 
-            map.put(arr[i], i);
+            } else if (arr[mid] < target) {
+
+                left = mid + 1;
+
+            } else {
+
+                right = mid - 1;
+            }
         }
 
-        System.out.println("No pair found");
+        System.out.println("Not found");
     }
 }
