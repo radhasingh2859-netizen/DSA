@@ -3,32 +3,18 @@ public class Arrays {
 
     public static void main(String[] args) {
 
-        int[] arr = {10, 20, 30, 40, 50, 60, 70};
+        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
-        int target = 50;
+        int currentSum = arr[0];
+        int maxSum = arr[0];
 
-        int left = 0;
-        int right = arr.length - 1;
+        for (int i = 1; i < arr.length; i++) {
 
-        while (left <= right) {
+            currentSum = Math.max(arr[i], currentSum + arr[i]);
 
-            int mid = left + (right - left) / 2;
-
-            if (arr[mid] == target) {
-
-                System.out.println("Found at index " + mid);
-                return;
-
-            } else if (arr[mid] < target) {
-
-                left = mid + 1;
-
-            } else {
-
-                right = mid - 1;
-            }
+            maxSum = Math.max(maxSum, currentSum);
         }
 
-        System.out.println("Not found");
+        System.out.println("Maximum subarray sum = " + maxSum);
     }
 }
