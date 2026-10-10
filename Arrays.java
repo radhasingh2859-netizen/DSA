@@ -3,12 +3,13 @@ import java.util.*;
 
 public class Arrays {
 
-    public static void multiplication(int[] arr, int n) {
+    public static int multiplication(int[] arr, int n, int target) {
         for (int i = 0; i < n; i++) {
-            arr[i] = arr[i] * 10;
+            if (arr[i] == target) {
+                return i;
+            }
         }
-        return;
-
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -22,11 +23,14 @@ public class Arrays {
             arr[i] = sc.nextInt();
         }
 
-        multiplication(arr, n);
-        for (int i = 0; i < n; i++) {
-            System.out.println(arr[i]);
+        System.out.println("enter the target element");
+        int target = sc.nextInt();
 
+        int index = multiplication(arr, n, target);
+        if (index != -1) {
+            System.out.println("Element found at index: " + index);
+        } else {
+            System.out.println("Element not found");
         }
-
     }
 }
