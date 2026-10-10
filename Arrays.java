@@ -1,20 +1,27 @@
 
+import java.util.*;
+
 public class Arrays {
 
+    public static double FindAverage(int[] arr, int n, int sum) {
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+        return (double) sum / n;
+    }
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the arr");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
 
-        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-
-        int currentSum = arr[0];
-        int maxSum = arr[0];
-
-        for (int i = 1; i < arr.length; i++) {
-
-            currentSum = Math.max(arr[i], currentSum + arr[i]);
-
-            maxSum = Math.max(maxSum, currentSum);
+        System.out.println("enter the element of the array");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
 
-        System.out.println("Maximum subarray sum = " + maxSum);
+        double average = FindAverage(arr, n, 0);
+        System.out.println("Average = " + average);
     }
 }
