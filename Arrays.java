@@ -3,11 +3,12 @@ import java.util.*;
 
 public class Arrays {
 
-    public static double FindAverage(int[] arr, int n, int sum) {
+    public static void multiplication(int[] arr, int n) {
         for (int i = 0; i < n; i++) {
-            sum += arr[i];
+            arr[i] = arr[i] * 10;
         }
-        return (double) sum / n;
+        return;
+
     }
 
     public static void main(String[] args) {
@@ -21,7 +22,11 @@ public class Arrays {
             arr[i] = sc.nextInt();
         }
 
-        double average = FindAverage(arr, n, 0);
-        System.out.println("Average = " + average);
+        multiplication(arr, n);
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+
+        }
+
     }
 }
