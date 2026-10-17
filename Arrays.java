@@ -1,23 +1,23 @@
 
       
-public static int[] getArray(int arr[]) {
-        int start = 0;
-        int end = arr.length - 1;
+public static int[] shiftArray(int arr[]) {
+        int first = arr[0];
 
-        while (start < end) {
-            int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-
-            start++;
-            end--;
+        for (int idx = 0; idx < arr.length - 1; idx++) {
+            arr[idx] = arr[idx + 1];
         }
+
+        arr[arr.length - 1] = first;
 
         return arr;
     }
 
-    public static void main(String[] args) {
-        int arr[] = {1, 3, 5, 2, 8};
+    public static void main(String args[]) {
+        int arr[] = {1, 4, 2, 7, 4, 5, 7};
 
-        System.out.println(Arrays.toString(getArray(arr)));
+        shiftArray(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
     }
