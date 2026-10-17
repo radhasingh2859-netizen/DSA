@@ -1,20 +1,23 @@
 
-public class Arrays {
+      
+public static int[] getArray(int arr[]) {
+        int start = 0;
+        int end = arr.length - 1;
 
-    public int UnsortedElement(int arr[]) {
-        for (int i = 0; i < arr.length; i++) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
 
-            if (arr[i + 1] < arr[i]) {
-                return arr[i + 1];
-
-            }
+            start++;
+            end--;
         }
-        return -1;
+
+        return arr;
     }
 
-    public void main(String[] args) {
-        int arr[] = {1, 6, 3, 4, 2, 4};
-        System.out.println("unsorSted element is:" + UnsortedElement(arr));
+    public static void main(String[] args) {
+        int arr[] = {1, 3, 5, 2, 8};
 
+        System.out.println(Arrays.toString(getArray(arr)));
     }
-}
