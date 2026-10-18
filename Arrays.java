@@ -1,23 +1,35 @@
 
-      
-public static int[] shiftArray(int arr[]) {
-        int first = arr[0];
+import java.util.HashMap;
 
-        for (int idx = 0; idx < arr.length - 1; idx++) {
-            arr[idx] = arr[idx + 1];
+public class Arrays {
+
+    public static int getmode(int arr[]) {
+        if (arr == null || arr.length == 0) {
+            return 0;
         }
 
-        arr[arr.length - 1] = first;
-
-        return arr;
-    }
-
-    public static void main(String args[]) {
-        int arr[] = {1, 4, 2, 7, 4, 5, 7};
-
-        shiftArray(arr);
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+        HashMap<Integer, Integer> freq = new HashMap<>();
+        for (int num : arr) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
         }
+
+        int mode = arr[0];
+        int maxCount = 0;
+
+        for (int num : freq.keySet()) {
+            if (freq.get(num) > maxCount) {
+                maxCount = freq.get(num);
+                mode = num;
+            }
+        }
+
+        return mode;
     }
+
+    public static void main(String[] args) {
+
+        int arr[] = {1, 2, 1, 2, 3, 3, 3, 5, 5, 5, 5, 3, 2, 5};
+        int ans = getmode(arr);
+        System.out.println(ans);
+    }
+}
