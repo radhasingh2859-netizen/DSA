@@ -1,23 +1,20 @@
 
 public class Arrays {
 
-    public static int missing(int arr[]) {
+    public static int uniqueelement(int arr[]) {
         int sum = 0;
-        int n = arr.length;
-        for (int value : arr) {
-            sum = sum ^ value;
-
-        }
-        for (int idx = 0; idx < arr.length; idx++) {
-            sum = sum ^ idx;
+        for (int elem : arr) {
+            sum = sum ^ elem;
 
         }
         return sum;
     }
 
     public static void main(String[] args) {
-        int arr[] = {1, 3, 2, 4, 6};
-        int ans = missing(arr);
+        int arr[] = {1, 1, 2, 2, 3, 4, 4};
+        int ans = uniqueelement(arr);
+
         System.out.println(ans);
+
     }
 }
